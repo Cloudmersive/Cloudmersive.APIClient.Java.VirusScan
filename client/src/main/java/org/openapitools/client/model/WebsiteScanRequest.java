@@ -35,7 +35,7 @@ import org.openapitools.client.ApiClient;
 @JsonPropertyOrder({
   WebsiteScanRequest.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-28T05:47:48.932093700Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-28T06:21:39.064418600Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class WebsiteScanRequest {
   public static final String JSON_PROPERTY_URL = "Url";
   @javax.annotation.Nullable

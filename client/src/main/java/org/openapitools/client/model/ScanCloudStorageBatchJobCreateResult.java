@@ -36,7 +36,7 @@ import org.openapitools.client.ApiClient;
   ScanCloudStorageBatchJobCreateResult.JSON_PROPERTY_SUCCESSFUL,
   ScanCloudStorageBatchJobCreateResult.JSON_PROPERTY_ASYNC_JOB_I_D
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-28T05:47:48.932093700Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-28T06:21:39.064418600Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class ScanCloudStorageBatchJobCreateResult {
   public static final String JSON_PROPERTY_SUCCESSFUL = "Successful";
   @javax.annotation.Nullable

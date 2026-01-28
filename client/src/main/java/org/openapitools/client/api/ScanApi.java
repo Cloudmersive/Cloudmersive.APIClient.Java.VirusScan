@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-28T05:47:48.932093700Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-28T06:21:39.064418600Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class ScanApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -172,20 +172,15 @@ public class ScanApi {
     HttpEntity entity = multiPartBuilder.build();
     HttpRequest.BodyPublisher formDataPublisher;
     if (ApiClient.isChunkedTransferEnabled()) {
-        Pipe pipe;
-        try {
-            pipe = Pipe.open();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        new Thread(() -> {
-            try (OutputStream outputStream = Channels.newOutputStream(pipe.sink())) {
-                entity.writeTo(outputStream);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> Channels.newInputStream(pipe.source()));
+        // Stream file bytes directly as application/octet-stream with chunked
+        // transfer encoding (no multipart framing, no Content-Length header).
+        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> {
+            try { return new java.io.FileInputStream(inputFile); }
+            catch (java.io.FileNotFoundException e) { throw new RuntimeException(e); }
+        });
+        localVarRequestBuilder
+            .header("Content-Type", "application/octet-stream")
+            .method("POST", formDataPublisher);
     } else {
         ByteArrayOutputStream formOutputStream = new ByteArrayOutputStream();
         try {
@@ -194,10 +189,10 @@ public class ScanApi {
             throw new RuntimeException(e);
         }
         formDataPublisher = HttpRequest.BodyPublishers.ofByteArray(formOutputStream.toByteArray());
+        localVarRequestBuilder
+            .header("Content-Type", entity.getContentType().getValue())
+            .method("POST", formDataPublisher);
     }
-    localVarRequestBuilder
-        .header("Content-Type", entity.getContentType().getValue())
-        .method("POST", formDataPublisher);
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -357,20 +352,15 @@ public class ScanApi {
     HttpEntity entity = multiPartBuilder.build();
     HttpRequest.BodyPublisher formDataPublisher;
     if (ApiClient.isChunkedTransferEnabled()) {
-        Pipe pipe;
-        try {
-            pipe = Pipe.open();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        new Thread(() -> {
-            try (OutputStream outputStream = Channels.newOutputStream(pipe.sink())) {
-                entity.writeTo(outputStream);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> Channels.newInputStream(pipe.source()));
+        // Stream file bytes directly as application/octet-stream with chunked
+        // transfer encoding (no multipart framing, no Content-Length header).
+        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> {
+            try { return new java.io.FileInputStream(inputFile); }
+            catch (java.io.FileNotFoundException e) { throw new RuntimeException(e); }
+        });
+        localVarRequestBuilder
+            .header("Content-Type", "application/octet-stream")
+            .method("POST", formDataPublisher);
     } else {
         ByteArrayOutputStream formOutputStream = new ByteArrayOutputStream();
         try {
@@ -379,10 +369,10 @@ public class ScanApi {
             throw new RuntimeException(e);
         }
         formDataPublisher = HttpRequest.BodyPublishers.ofByteArray(formOutputStream.toByteArray());
+        localVarRequestBuilder
+            .header("Content-Type", entity.getContentType().getValue())
+            .method("POST", formDataPublisher);
     }
-    localVarRequestBuilder
-        .header("Content-Type", entity.getContentType().getValue())
-        .method("POST", formDataPublisher);
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
