@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Additional non-threat content verification information
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-03T08:41:21.483351Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T23:59:36.607801Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class AdditionalAdvancedScanInformation {
   public static final String SERIALIZED_NAME_CONTAINS_J_S_O_N = "ContainsJSON";
   @SerializedName(SERIALIZED_NAME_CONTAINS_J_S_O_N)

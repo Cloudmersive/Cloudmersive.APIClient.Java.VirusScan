@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Status of the scan cloud storage job
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-03T08:41:21.483351Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T23:59:36.607801Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class ScanCloudStorageJobStatusResult {
   public static final String SERIALIZED_NAME_SUCCESSFUL = "Successful";
   @SerializedName(SERIALIZED_NAME_SUCCESSFUL)

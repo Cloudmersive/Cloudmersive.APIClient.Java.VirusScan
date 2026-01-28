@@ -127,6 +127,13 @@ public class ApiClient {
 
     private void initHttpClient(List<Interceptor> interceptors) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        // Force TLS 1.2 (some environments default to TLS 1.0/1.1 which many APIs block)
+        builder.connectionSpecs(Arrays.asList(
+                new ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
+                        .tlsVersions(TlsVersion.TLS_1_2)
+                        .build(),
+                ConnectionSpec.CLEARTEXT
+        ));
         builder.addNetworkInterceptor(getProgressInterceptor());
         for (Interceptor interceptor: interceptors) {
             builder.addInterceptor(interceptor);
@@ -141,7 +148,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/10.0.0/java");
+        setUserAgent("OpenAPI-Generator/10.1.0/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -1586,4 +1593,34 @@ public class ApiClient {
         // empty http request body
         return "";
     }
+
+    /**
+     * Enable chunked transfer encoding for multipart uploads (file parameters).
+     *
+     * This configures the underlying OkHttpClient to:
+     *  - use HTTP/1.1 (so Transfer-Encoding: chunked applies), and
+     *  - wrap multipart request bodies so the content length is unknown.
+     *
+     * Calling this method multiple times will not add duplicate interceptors.
+     *
+     * @return ApiClient
+     */
+    public ApiClient enableChunkedTransfer() {
+        OkHttpClient base = getHttpClient();
+
+        // Don't add the interceptor more than once.
+        for (Interceptor i : base.interceptors()) {
+            if (i instanceof ForceChunkedMultipartInterceptor) {
+                return this;
+            }
+        }
+
+        OkHttpClient chunked = base.newBuilder()
+                .protocols(Collections.singletonList(Protocol.HTTP_1_1))
+                .addInterceptor(new ForceChunkedMultipartInterceptor())
+                .build();
+
+        return setHttpClient(chunked);
+    }
+
 }

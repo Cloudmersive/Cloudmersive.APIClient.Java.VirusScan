@@ -2,7 +2,7 @@
 
 virusapi
 - API version: v1
-  - Build date: 2025-11-03T08:41:21.483351Z[Etc/UTC]
+  - Build date: 2026-01-27T23:59:36.607801Z[Etc/UTC]
   - Generator version: 7.12.0
 
 The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cloudmersive</groupId>
   <artifactId>cloudmersive-virus-api-java-client</artifactId>
-  <version>10.0.0</version>
+  <version>10.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cloudmersive:cloudmersive-virus-api-java-client:10.0.0"
+     implementation "com.cloudmersive:cloudmersive-virus-api-java-client:10.1.0"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudmersive-virus-api-java-client-10.0.0.jar`
+* `target/cloudmersive-virus-api-java-client-10.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
