@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 
 # Always operate relative to this script's directory (NOT the caller's cwd)
 $root = $PSScriptRoot
@@ -118,24 +118,31 @@ try {
   Write-Utf8NoBom -Path $apiClientPath -Content $apiClientContent
 
   # ----------------------------------------------------------------------
-  # Patch API classes: make the Pipe-based (chunked) multipart body
-  # publisher conditional on ApiClient.isChunkedTransferEnabled().
+  # Patch API classes: replace the generated if(hasFiles)/else block and
+  # the Content-Type + .method() lines that follow it.
   #
-  # Generated code has:
-  #   if (hasFiles) {           // Pipe -> always chunked (unknown length)
-  #   } else {                  // ByteArrayOutputStream -> buffered
+  # Generated code (for every method that uploads a file):
+  #
+  #   if (hasFiles) {
+  #       Pipe pipe; ... entity.writeTo ... ofInputStream(pipe) ...
+  #   } else {
+  #       ByteArrayOutputStream ... entity.writeTo ... ofInputStream(ByteArrayInputStream) ...
+  #   }
+  #   localVarRequestBuilder
+  #       .header("Content-Type", entity.getContentType().getValue())
+  #       .method("POST", formDataPublisher);
+  #
+  # Replacement:
+  #
+  #   if (ApiClient.isChunkedTransferEnabled()) {
+  #       // stream file bytes directly as application/octet-stream
+  #       // (no multipart framing, unknown length -> chunked transfer)
+  #   } else {
+  #       // buffer multipart entity to byte array -> known Content-Length
   #   }
   #
-  # We change it to:
-  #   if (ApiClient.isChunkedTransferEnabled()) {  // Pipe -> chunked
-  #   } else {                                     // buffer everything -> known Content-Length
-  #   }
-  #
-  # The else branch already buffers via ByteArrayOutputStream + entity.writeTo(),
-  # which works for both file and non-file multipart bodies (the entity is built
-  # by MultipartEntityBuilder before the if/else).  We also swap
-  # ofInputStream(() -> new ByteArrayInputStream(...)) to ofByteArray(...) so that
-  # java.net.http sends a proper Content-Length header.
+  # The file variable (e.g. inputFile, jsonCredentialFile) is extracted
+  # from the addBinaryBody() call that precedes each block.
   # ----------------------------------------------------------------------
   $apiDir = Join-Path $clientDir "src\main\java\org\openapitools\client\api"
   $apiFiles = Get-ChildItem -Path $apiDir -Filter '*.java' -Recurse
@@ -144,25 +151,54 @@ try {
     $content = Read-TextFile $file.FullName
     $changed = $false
 
-    # (1) Replace "if (hasFiles)" with "if (ApiClient.isChunkedTransferEnabled())"
-    if ($content -match '\bif\s*\(\s*hasFiles\s*\)') {
-      $content = [System.Text.RegularExpressions.Regex]::Replace(
-        $content,
-        '\bif\s*\(\s*hasFiles\s*\)',
-        'if (ApiClient.isChunkedTransferEnabled())'
-      )
-      $changed = $true
-    }
+    # Match the entire if(hasFiles){Pipe...}else{...} block through
+    # .method("POST", formDataPublisher);
+    $blockPattern = '(?s)if\s*\(\s*hasFiles\s*\)\s*\{\s*Pipe\s+pipe;.*?\.method\("POST",\s*formDataPublisher\)\s*;'
+    $blockMatches = [System.Text.RegularExpressions.Regex]::Matches($content, $blockPattern)
 
-    # (2) Replace ofInputStream(() -> new ByteArrayInputStream(...)) with ofByteArray(...)
-    #     in the else (buffered) branch so a known Content-Length is sent.
-    $ofInputStreamPattern = 'HttpRequest\.BodyPublishers\s*\n?\s*\.ofInputStream\(\(\)\s*->\s*new\s+ByteArrayInputStream\((\w+)\.toByteArray\(\)\)\)'
-    if ($content -match $ofInputStreamPattern) {
-      $content = [System.Text.RegularExpressions.Regex]::Replace(
-        $content,
-        $ofInputStreamPattern,
-        'HttpRequest.BodyPublishers.ofByteArray($1.toByteArray())'
+    # Process in reverse so earlier string indices stay valid
+    for ($i = $blockMatches.Count - 1; $i -ge 0; $i--) {
+      $bm = $blockMatches[$i]
+
+      # Look backward to find the nearest addBinaryBody("...", FILE_VAR)
+      $preceding = $content.Substring(0, $bm.Index)
+      $abm = [System.Text.RegularExpressions.Regex]::Match(
+        $preceding,
+        'addBinaryBody\("[^"]+",\s*(\w+)\)',
+        [System.Text.RegularExpressions.RegexOptions]::RightToLeft
       )
+      if (-not $abm.Success) {
+        Write-Host "WARNING: no addBinaryBody found before block in $($file.Name)"
+        continue
+      }
+      $fileVar = $abm.Groups[1].Value
+
+      # Build the replacement.  Indentation: the matched "if" sits at the
+      # same column as the original, so the replacement starts with "if".
+      $replacement = "if (ApiClient.isChunkedTransferEnabled()) {" +
+"`r`n        // Stream file bytes directly as application/octet-stream with chunked" +
+"`r`n        // transfer encoding (no multipart framing, no Content-Length header)." +
+"`r`n        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> {" +
+"`r`n            try { return new java.io.FileInputStream($fileVar); }" +
+"`r`n            catch (java.io.FileNotFoundException e) { throw new RuntimeException(e); }" +
+"`r`n        });" +
+"`r`n        localVarRequestBuilder" +
+"`r`n            .header(""Content-Type"", ""application/octet-stream"")" +
+"`r`n            .method(""POST"", formDataPublisher);" +
+"`r`n    } else {" +
+"`r`n        ByteArrayOutputStream formOutputStream = new ByteArrayOutputStream();" +
+"`r`n        try {" +
+"`r`n            entity.writeTo(formOutputStream);" +
+"`r`n        } catch (IOException e) {" +
+"`r`n            throw new RuntimeException(e);" +
+"`r`n        }" +
+"`r`n        formDataPublisher = HttpRequest.BodyPublishers.ofByteArray(formOutputStream.toByteArray());" +
+"`r`n        localVarRequestBuilder" +
+"`r`n            .header(""Content-Type"", entity.getContentType().getValue())" +
+"`r`n            .method(""POST"", formDataPublisher);" +
+"`r`n    }"
+
+      $content = $content.Substring(0, $bm.Index) + $replacement + $content.Substring($bm.Index + $bm.Length)
       $changed = $true
     }
 
