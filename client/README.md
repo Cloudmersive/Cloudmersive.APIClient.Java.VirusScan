@@ -4,7 +4,7 @@ virusapi
 
 - API version: v1
 
-- Build date: 2026-01-28T05:09:42.530466700Z[Etc/UTC]
+- Build date: 2026-01-28T05:47:48.932093700Z[Etc/UTC]
 
 - Generator version: 7.12.0
 
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cloudmersive</groupId>
   <artifactId>cloudmersive-virus-api-java-client</artifactId>
-  <version>11.0.0</version>
+  <version>11.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.cloudmersive:cloudmersive-virus-api-java-client:11.0.0"
+compile "com.cloudmersive:cloudmersive-virus-api-java-client:11.1.0"
 ```
 
 ### Others
@@ -67,7 +67,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cloudmersive-virus-api-java-client-11.0.0.jar`
+- `target/cloudmersive-virus-api-java-client-11.1.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

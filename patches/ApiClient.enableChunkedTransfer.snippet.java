@@ -11,6 +11,7 @@
      */
     public ApiClient enableChunkedTransfer() {
         chunkedTransfer = true;
+        this.builder.version(java.net.http.HttpClient.Version.HTTP_1_1);
         return this;
     }
 

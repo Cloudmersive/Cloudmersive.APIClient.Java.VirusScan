@@ -5,7 +5,7 @@
     <artifactId>cloudmersive-virus-api-java-client</artifactId>
     <packaging>jar</packaging>
     <name>cloudmersive-virus-api-java-client</name>
-    <version>11.0.0</version>
+    <version>11.1.0</version>
     <url>https://cloudmersive.com/virus-api</url>
     <description>Cloudmersive Virus Scan API Java Client</description>
     <scm>
