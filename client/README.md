@@ -4,7 +4,7 @@ virusapi
 
 - API version: v1
 
-- Build date: 2026-01-27T21:04:27.160244900-08:00[America/Los_Angeles]
+- Build date: 2026-01-28T05:09:42.530466700Z[Etc/UTC]
 
 - Generator version: 7.12.0
 
