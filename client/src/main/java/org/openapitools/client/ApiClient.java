@@ -51,7 +51,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * <p>The setter methods of this class return the current object to facilitate
  * a fluent style of configuration.</p>
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:04:27.160244900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:38:34.865022900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
 public class ApiClient {
 
   private HttpClient.Builder builder;
@@ -467,6 +467,10 @@ public class ApiClient {
      */
     public ApiClient enableChunkedTransfer() {
         chunkedTransfer = true;
+        // Force HTTP/1.1 so the JDK sends Transfer-Encoding: chunked when
+        // the body publisher reports contentLength == -1.  HTTP/2 has its own
+        // framing and does not use chunked transfer encoding.
+        this.builder.version(java.net.http.HttpClient.Version.HTTP_1_1);
         return this;
     }
 

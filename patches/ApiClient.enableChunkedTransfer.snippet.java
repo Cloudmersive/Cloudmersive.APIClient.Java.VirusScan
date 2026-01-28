@@ -11,6 +11,10 @@
      */
     public ApiClient enableChunkedTransfer() {
         chunkedTransfer = true;
+        // Force HTTP/1.1 so the JDK sends Transfer-Encoding: chunked when
+        // the body publisher reports contentLength == -1.  HTTP/2 has its own
+        // framing and does not use chunked transfer encoding.
+        this.builder.version(java.net.http.HttpClient.Version.HTTP_1_1);
         return this;
     }
 

@@ -54,7 +54,7 @@ import org.openapitools.client.ApiClient;
   VirusScanAdvancedResult.JSON_PROPERTY_FOUND_VIRUSES,
   VirusScanAdvancedResult.JSON_PROPERTY_CONTENT_INFORMATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:04:27.160244900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:38:34.865022900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
 public class VirusScanAdvancedResult {
   public static final String JSON_PROPERTY_CLEAN_RESULT = "CleanResult";
   @javax.annotation.Nullable

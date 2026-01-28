@@ -56,7 +56,7 @@ import org.openapitools.client.ApiClient;
   CloudStorageAdvancedVirusScanResult.JSON_PROPERTY_FILE_SIZE,
   CloudStorageAdvancedVirusScanResult.JSON_PROPERTY_CONTENT_INFORMATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:04:27.160244900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:38:34.865022900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
 public class CloudStorageAdvancedVirusScanResult {
   public static final String JSON_PROPERTY_SUCCESSFUL = "Successful";
   @javax.annotation.Nullable

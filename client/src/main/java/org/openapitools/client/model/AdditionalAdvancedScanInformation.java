@@ -41,7 +41,7 @@ import org.openapitools.client.ApiClient;
   AdditionalAdvancedScanInformation.JSON_PROPERTY_RELEVANT_SUBFILE_HASH_S_H_A1,
   AdditionalAdvancedScanInformation.JSON_PROPERTY_IS_AUTHENTICODE_SIGNED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:04:27.160244900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-27T21:38:34.865022900-08:00[America/Los_Angeles]", comments = "Generator version: 7.12.0")
 public class AdditionalAdvancedScanInformation {
   public static final String JSON_PROPERTY_CONTAINS_J_S_O_N = "ContainsJSON";
   @javax.annotation.Nullable
