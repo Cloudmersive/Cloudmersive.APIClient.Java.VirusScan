@@ -46,10 +46,11 @@ try {
   $openapiJar     = Join-Path $root "openapi-generator-cli-7.12.0.jar"
   $packageConfig  = Join-Path $root "packageconfig.json"
 
-  $patchRoot          = Join-Path $root "patches"
-  $patchChunkedMethod = Join-Path $patchRoot "ApiClient.enableChunkedTransfer.snippet.java"
+  $patchRoot              = Join-Path $root "patches"
+  $patchChunkedMethod     = Join-Path $patchRoot "ApiClient.enableChunkedTransfer.snippet.java"
+  $patchScanApiOverloads  = Join-Path $patchRoot "ScanApi.bytesAndStreamOverloads.snippet.java"
 
-  foreach ($p in @($openapiJar, $packageConfig, $patchChunkedMethod)) {
+  foreach ($p in @($openapiJar, $packageConfig, $patchChunkedMethod, $patchScanApiOverloads)) {
     if (!(Test-Path $p)) { throw "Missing required file: $p" }
   }
 
@@ -103,7 +104,7 @@ try {
   # ----------------------------------------------------------------------
   # Patch ApiClient.java: add enableChunkedTransfer() helper method
   # ----------------------------------------------------------------------
-  $apiClientPath = Join-Path $clientDir "src\main\java\org\openapitools\client\ApiClient.java"
+  $apiClientPath = Join-Path $clientDir "src\main\java\com\cloudmersive\virusscan\ApiClient.java"
   $apiClientContent = Read-TextFile $apiClientPath
 
   if ($apiClientContent -notmatch '\benableChunkedTransfer\s*\(') {
@@ -144,7 +145,7 @@ try {
   # The file variable (e.g. inputFile, jsonCredentialFile) is extracted
   # from the addBinaryBody() call that precedes each block.
   # ----------------------------------------------------------------------
-  $apiDir = Join-Path $clientDir "src\main\java\org\openapitools\client\api"
+  $apiDir = Join-Path $clientDir "src\main\java\com\cloudmersive\virusscan\api"
   $apiFiles = Get-ChildItem -Path $apiDir -Filter '*.java' -Recurse
 
   foreach ($file in $apiFiles) {
@@ -206,6 +207,29 @@ try {
       Write-Host "Patched multipart body publisher in $($file.Name)"
       Write-Utf8NoBom -Path $file.FullName -Content $content
     }
+  }
+
+  # ----------------------------------------------------------------------
+  # Patch ScanApi.java: inject byte[] / InputStream overloads for
+  # scanFileAdvanced so callers can scan in-memory content without
+  # writing to a temp File.  Pure additive insert before the class's
+  # closing brace.
+  # ----------------------------------------------------------------------
+  $scanApiPath = Join-Path $clientDir "src\main\java\com\cloudmersive\virusscan\api\ScanApi.java"
+  if (!(Test-Path $scanApiPath)) {
+    throw "Expected generated ScanApi.java not found at: $scanApiPath"
+  }
+  $scanApiContent = Read-TextFile $scanApiPath
+
+  if ($scanApiContent -notmatch '\bscanFileAdvancedRequestBuilderFromBytes\s*\(') {
+    $overloadSnippet = Read-TextFile $patchScanApiOverloads
+
+    $lastBrace = $scanApiContent.LastIndexOf("}")
+    if ($lastBrace -lt 0) { throw "Could not find class closing brace in ScanApi.java" }
+
+    $scanApiContent = $scanApiContent.Insert($lastBrace, "`r`n" + $overloadSnippet + "`r`n")
+    Write-Utf8NoBom -Path $scanApiPath -Content $scanApiContent
+    Write-Host "Patched ScanApi.java with byte[]/InputStream overloads for scanFileAdvanced"
   }
 
   # Safety net: strip UTF-8 BOM from ALL generated Java files

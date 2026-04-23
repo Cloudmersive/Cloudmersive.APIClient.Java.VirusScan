@@ -4,16 +4,20 @@
       "artifactId": "cloudmersive-virus-api-java-client",
       "artifactDescription": "Cloudmersive Virus Scan API Java Client",
       "artifactUrl": "https://cloudmersive.com/virus-api",
-  
+
+      "invokerPackage": "com.cloudmersive.virusscan",
+      "apiPackage": "com.cloudmersive.virusscan.api",
+      "modelPackage": "com.cloudmersive.virusscan.model",
+
       "developerName": "Cloudmersive",
       "developerOrganization": "Cloudmersive",
       "developerEmail": "support@cloudmersive.com",
       "developerOrganizationUrl": "https://cloudmersive.com/",
-  
+
       "licenseName": "Apache License 2.0",
       "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0.html",
-  
-      "artifactVersion": "11.2.0",
+
+      "artifactVersion": "12.0.0",
 
       "scmConnection": "https://github.com/Cloudmersive/Cloudmersive.APIClient.Java.VirusScan.git",
     "scmDeveloperConnection": "https://github.com/Cloudmersive/Cloudmersive.APIClient.Java.VirusScan.git",

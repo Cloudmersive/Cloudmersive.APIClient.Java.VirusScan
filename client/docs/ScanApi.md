@@ -25,12 +25,12 @@ Scan files and content for viruses. Leverage continuously updated signatures for
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -97,13 +97,13 @@ Scan files and content for viruses. Leverage continuously updated signatures for
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -173,12 +173,12 @@ Advanced Scan files with 360-degree Content Protection across Viruses and Malwar
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -273,13 +273,13 @@ Advanced Scan files with 360-degree Content Protection across Viruses and Malwar
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -377,12 +377,12 @@ Operation includes scanning the content of the URL for various types of maliciou
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -449,13 +449,13 @@ Operation includes scanning the content of the URL for various types of maliciou
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanApi;
 
 public class Example {
     public static void main(String[] args) {
