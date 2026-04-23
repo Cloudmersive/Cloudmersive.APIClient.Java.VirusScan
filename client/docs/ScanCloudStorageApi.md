@@ -39,12 +39,12 @@ Returns the result of the Async Job - possible states can be STARTED or COMPLETE
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -111,13 +111,13 @@ Returns the result of the Async Job - possible states can be STARTED or COMPLETE
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -187,12 +187,12 @@ Scan the contents of a single AWS S3 file and its content for viruses. Leverage 
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -269,13 +269,13 @@ Scan the contents of a single AWS S3 file and its content for viruses. Leverage 
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -355,12 +355,12 @@ Advanced Scan the contents of a single AWS S3 file and its content for viruses a
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -463,13 +463,13 @@ Advanced Scan the contents of a single AWS S3 file and its content for viruses a
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -575,12 +575,12 @@ Scan the contents of a single Azure Blob and its content for viruses. Leverage c
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -651,13 +651,13 @@ Scan the contents of a single Azure Blob and its content for viruses. Leverage c
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -731,12 +731,12 @@ Advanced Scan the contents of a single Azure Blob and its content for viruses an
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -833,13 +833,13 @@ Advanced Scan the contents of a single Azure Blob and its content for viruses an
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -939,12 +939,12 @@ Via a batch job, advanced Scan the contents of a single Azure Blob and its conte
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1041,13 +1041,13 @@ Via a batch job, advanced Scan the contents of a single Azure Blob and its conte
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1147,12 +1147,12 @@ Scan the contents of a single Google Cloud Platform (GCP) Storage file and its c
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1223,13 +1223,13 @@ Scan the contents of a single Google Cloud Platform (GCP) Storage file and its c
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1303,12 +1303,12 @@ Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file 
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1405,13 +1405,13 @@ Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file 
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1511,12 +1511,12 @@ Virus Scan the contents of a single SharePoint Online Site Drive file and its co
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1595,13 +1595,13 @@ Virus Scan the contents of a single SharePoint Online Site Drive file and its co
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1683,12 +1683,12 @@ Advanced Virus Scan the contents of a single SharePoint Online Site Drive file a
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1791,13 +1791,13 @@ Advanced Virus Scan the contents of a single SharePoint Online Site Drive file a
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScanCloudStorageApi;
+import com.cloudmersive.virusscan.ApiClient;
+import com.cloudmersive.virusscan.ApiException;
+import com.cloudmersive.virusscan.ApiResponse;
+import com.cloudmersive.virusscan.Configuration;
+import com.cloudmersive.virusscan.auth.*;
+import com.cloudmersive.virusscan.models.*;
+import com.cloudmersive.virusscan.api.ScanCloudStorageApi;
 
 public class Example {
     public static void main(String[] args) {
